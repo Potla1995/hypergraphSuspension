@@ -25,6 +25,7 @@ from_dict_of_lists(Dp11_3, adjlists[1])
 
 # Compute and print the component sizes of D(11,3) and D'(11,3)
 
+print('Component sizes for D(11,3) and D\'(11,3):')
 print(D11_3.connected_component_sizes())
 print(Dp11_3.connected_component_sizes())
 
@@ -39,14 +40,14 @@ CDp11_3.add_edges(cdp113_edges)
 d1 = CD11_3.diameter()
 d2 = CDp11_3.diameter()
 
-print('Diameter of CD(11,3): %d, Diameter of CD\'(11,3): %d' %(d1, d2))
+print('\nDiameter of CD(11,3): %d, Diameter of CD\'(11,3): %d' %(d1, d2))
 
 # Compute and print the number of paths from (0,0,...,0) in A to (0,0,...,0) in B
 
 paths_0_to_0_D11_3 =  CD11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d1)
 paths_0_to_0_Dp11_3 =  CDp11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d2)
 
-print('Number of paths from 0 (left) to 0 (right):\n in D(11,3): %d, in D\'(11,3): %d' %(len(paths_0_to_0_D11_3), len(paths_0_to_0_Dp11_3)))
+print('\nNumber of paths from 0 (left) to 0 (right):\n in D(11,3): %d, in D\'(11,3): %d' %(len(paths_0_to_0_D11_3), len(paths_0_to_0_Dp11_3)))
 
 # Store the paths from (0,0,...0) in A to (0,0,...,0) in B
 f = open('Cycles_through_00.txt', 'w')

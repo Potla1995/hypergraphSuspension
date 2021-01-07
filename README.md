@@ -25,6 +25,8 @@ However, we find 112 such cycles in D(11,3) but only 4 such cycles in D'(11,3).
 
 The following programs are required to run this code: `g++`, `python3`, `gephi`, `sagemath`.
 
+The result takes approximately 6 hours of computation time on an AMD Ryzen 5 3600 processor running at 3.97GHz.
+
 
 ## Instructions for reproducing the result
 
@@ -43,7 +45,12 @@ sage adjListToDiam.sage
 ## Output
 The following is the console output from Step 2.
 ```bash
+Component sizes for D(11,3) and D'(11,3):
+[39366, 39366, 39366, 39366, 39366, 39366, 39366, 39366, 39366]
+[39366, 39366, 39366, 39366, 39366, 39366, 39366, 39366, 39366]
+
 Diameter of D(11,3): 22, Diameter of D'(11,3): 20
+
 Number of paths from 0 (left) to 0 (right):
 in D(11,3): 113, in D'(11,3): 5
 ```
