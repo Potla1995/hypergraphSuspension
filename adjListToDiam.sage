@@ -23,17 +23,28 @@ for file in files:
 from_dict_of_lists(D11_3, adjlists[0])
 from_dict_of_lists(Dp11_3, adjlists[1])
 
-# Compute and print the diameters of D(11,3) and D'(11,3)
+# Compute and print the component sizes of D(11,3) and D'(11,3)
 
-d1 = D11_3.diameter()
-d2 = Dp11_3.diameter()
+print(D11_3.connected_component_sizes())
+print(Dp11_3.connected_component_sizes())
 
-print('Diameter of D(11,3): %d, Diameter of D\'(11,3): %d' %(d1, d2))
+# Import the graphs CD(11,3) and CD'(11,3) from conn_comp_edges.py
+from conn_comp_edges import cd113_edges, cdp113_edges
+CD11_3 = Graph()
+CDp11_3 = Graph()
+CD11_3.add_edges(cd113_edges)
+CDp11_3.add_edges(cdp113_edges)
+
+# Compute the diameters of CD(11,3) And CD'(11,3)
+d1 = CD11_3.diameter()
+d2 = CDp11_3.diameter()
+
+print('Diameter of CD(11,3): %d, Diameter of CD\'(11,3): %d' %(d1, d2))
 
 # Compute and print the number of paths from (0,0,...,0) in A to (0,0,...,0) in B
 
-paths_0_to_0_D11_3 =  D11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d1)
-paths_0_to_0_Dp11_3 =  Dp11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d2)
+paths_0_to_0_D11_3 =  CD11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d1)
+paths_0_to_0_Dp11_3 =  CDp11_3.to_directed().all_simple_paths(starting_vertices = ['00000000000'], ending_vertices = ['00000000000\''], max_length = d2)
 
 print('Number of paths from 0 (left) to 0 (right):\n in D(11,3): %d, in D\'(11,3): %d' %(len(paths_0_to_0_D11_3), len(paths_0_to_0_Dp11_3)))
 
